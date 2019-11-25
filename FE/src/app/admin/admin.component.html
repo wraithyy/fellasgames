@@ -1,0 +1,125 @@
+<h2>Účastníci</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Jméno</th>
+    <th>Příjmení</th>
+    <th>Nick</th>
+    <th>Pohlaví</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contestant of contestants let i = index" [attr.data-index]="i">
+    <td>
+{{contestant.id}}
+    </td>
+    <td>
+      <input [(ngModel)]="contestant.firstname">
+    </td>
+    <td>
+      <input [(ngModel)]="contestant.lastname">
+    </td>
+    <td>
+      <input [(ngModel)]="contestant.nick">
+    </td>
+    <td>
+      <select [(ngModel)]="contestant.gender">
+        <option
+                [value]="'m'">Muž</option>
+        <option
+          [value]="'f'">Žena</option>
+      </select>
+    </td>
+    <td>
+      <button class="btn" (click)="saveContestant(i)">Uložit</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Nový
+    </td>
+    <td>
+      <input [(ngModel)]="newContestant.firstname">
+    </td>
+    <td>
+      <input [(ngModel)]="newContestant.lastname">
+    </td>
+    <td>
+      <input [(ngModel)]="newContestant.nick">
+    </td>
+    <td>
+      <select [(ngModel)]="newContestant.gender">
+        <option
+          [value]="'m'">Muž</option>
+        <option
+          [value]="'f'">Žena</option>
+      </select>
+    </td>
+    <td>
+      <button class="btn" (click)="addContestant()">Přidat</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<h2>Workouty</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Název</th>
+    <th>Hodnocení</th>
+    <th>Popisek</th>
+
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let workout of workouts let i = index" [attr.data-index]="i">
+    <td>
+      {{workout.id}}
+    </td>
+    <td>
+      <input [(ngModel)]="workout.name">
+    </td>
+    <td>
+      <select [(ngModel)]="workout.byTime">
+        <option
+          [value]="1">Na čas</option>
+        <option
+          [value]="0">Na score</option>
+      </select>
+    </td>
+    <td>
+      <input [(ngModel)]="workout.description">
+    </td>
+
+    <td>
+      <button class="btn" (click)="saveWorkout(i)">Uložit</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Nový
+    </td>
+    <td>
+      <input [(ngModel)]="newWorkout.name">
+    </td>
+    <td>
+      <select [(ngModel)]="newWorkout.byTime">
+        <option
+          [value]="'1'">Na čas</option>
+        <option
+          [value]="'0'">Na score</option>
+      </select>
+    </td>
+    <td>
+      <input [(ngModel)]="newWorkout.description">
+    </td>
+    <td>
+      <button class="btn" (click)="addWorkout()">Přidat</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

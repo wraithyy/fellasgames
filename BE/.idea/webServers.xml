@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="738cb19c-f745-48b5-9c37-fc4b01a3c5f6" name="Apache" url="http://localhost/api">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\api" accessType="MOUNT" />
+      </webServer>
+      <webServer id="cfd77710-966e-46c2-aa4b-d2e980aa6b7d" name="endora" url="http://fellasgames.cf/">
+        <fileTransfer host="medvidek.endora.cz" port="21" rootFolder="/web">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

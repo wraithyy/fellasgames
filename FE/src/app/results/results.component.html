@@ -1,0 +1,92 @@
+<div class="newResult">
+  <table>
+    <tr><td>Účastník</td>
+  <td>
+    <ngx-select-dropdown [config]="config" [options]="options"
+                         [(ngModel)]="newResultContestant" [multiple]="false"
+                         style="width:100px;"></ngx-select-dropdown>
+  </td>
+    </tr>
+    <tr><td>
+    Workout</td>
+      <td>
+    <select class="form-control" [(ngModel)]="newResult.id_workout">
+      <option *ngFor="let workout of workouts" [value]="workout.id">
+        {{workout.name}}
+      </option>
+    </select>
+      </td>
+    <tr><td>
+    Rx</td>
+    <td>
+    <input class="form-control"
+           type="checkbox"
+           [checked]="newResult.rx==1"
+           (change)="newResult.rx==1? newResult.rx = 0 : newResult.rx = 1"/>
+    </td>
+    <tr><td>
+    Výsledek</td>
+    <td>
+    <input
+      class="form-control"
+      [(ngModel)]="newResult.result"/>
+    </td>
+    <td>
+
+    <tr><td colspan="2">
+    <button class="btn btn-primary" (click)="addResult()">Uložit</button>
+  </td></tr>
+  </table>
+</div>
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Jméno</th>
+    <th>Příjmení</th>
+    <th>Workout</th>
+    <th>Výsledek</th>
+    <th>Rx</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let result of results let i = index" [attr.data-index]="i">
+    <td>
+      {{result.id}}
+    </td>
+    <td>
+      <input [(ngModel)]="result.contestant.firstname" disabled>
+    </td>
+    <td>
+      <input [(ngModel)]="result.contestant.lastname" disabled>
+    </td>
+    <td>
+      <input [(ngModel)]="result.workout.name" disabled>
+    </td>
+    <td>
+      <input [(ngModel)]="result.result">
+    </td>
+    <td>
+      <input
+        type="checkbox"
+        [checked]="result.rx==1"
+        (change)="rxChange(result);"/>
+    </td>
+    <td>
+      {{result.workout.byTime == 1 ? 'Na čas' : 'Na Score'}}
+    </td>
+    <td>
+      <button class="btn btn-primary" (click)="saveResult(i)">Uložit</button>
+    </td>
+    <td>
+      <button class="btn btn-outline-danger" (click)="deleteResult(result.id)">X</button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>

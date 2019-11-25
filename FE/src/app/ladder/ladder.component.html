@@ -1,0 +1,145 @@
+<ng-container *ngIf="showMen || showBoth"><div class="category">
+BOYS
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th>
+      #
+    </th>
+    <th>
+      Jméno
+    </th>
+ <th>
+Přezdívka
+    </th>
+    <ng-container *ngFor="let workout of workouts">
+      <th>
+     {{workout.name}}
+      </th>
+
+    </ng-container>
+    <th>
+      Celkem
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ladder of ladderM let i = index" [attr.data-index]="i">
+    <td>
+      <strong>{{i+1}}</strong>
+    </td>
+    <td>
+      {{ladder.lastname}} {{ladder.firstname}}
+    </td>
+    <td>
+      {{ladder.nick}}
+    </td>
+    <ng-container *ngFor="let workout of workouts">
+      <td>
+        {{ladder.workouts[workout.id]?.points}}
+        {{ladder.workouts[workout.id]?.name}} {{ladder.workouts[workout.id]?.rx == 1? '✔': ''}}
+      </td>
+
+    </ng-container>
+    <td>
+      <strong>{{ladder.total}}</strong>
+    </td>
+  </tr>
+  <tr *ngFor="let ladder of contM let i = index" [attr.data-index]="i">
+    <td>
+      <strong>{{i+1}}</strong>
+    </td>
+    <td>
+      {{ladder.lastname}} {{ladder.firstname}}
+    </td>
+    <td>
+      {{ladder.nick}}
+    </td>
+    <ng-container *ngFor="let workout of workouts">
+      <td>
+
+      </td>
+
+    </ng-container>
+    <td>
+      <strong>0</strong>
+    </td>
+  </tr>
+  </tbody>
+</table>
+✔ = Rx
+</ng-container>
+<ng-container *ngIf="!showMen || showBoth">
+<div class="category">
+GIRLS
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>
+      Jméno
+    </th>
+    <th>
+      Přezdívka
+    </th>
+    <ng-container *ngFor="let workout of workouts, ">
+      <th>
+        {{workout.name}}
+      </th>
+
+    </ng-container>
+    <th>
+      Celkem
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let ladder of ladderF let i = index" [attr.data-index]="i">
+    <td>
+      <strong>{{i+1}}</strong>
+    </td>
+    <td>
+      {{ladder.lastname}} {{ladder.firstname}}
+    </td>
+    <td>
+      {{ladder.nick}}
+    </td>
+    <ng-container *ngFor="let workout of workouts">
+      <td>
+        {{ladder.workouts[workout.id].points}}
+        {{ladder.workouts[workout.id].name}}  {{ladder.workouts[workout.id].rx == 1? '✔': ''}}
+      </td>
+
+    </ng-container>
+    <td>
+      <strong>{{ladder.total}}</strong>
+    </td>
+  </tr>
+  <tr *ngFor="let ladder of contF let i = index" [attr.data-index]="i">
+    <td>
+      <strong>{{i+1}}</strong>
+    </td>
+    <td>
+      {{ladder.lastname}} {{ladder.firstname}}
+    </td>
+    <td>
+      {{ladder.nick}}
+    </td>
+    <ng-container *ngFor="let workout of workouts">
+      <td>
+
+      </td>
+
+    </ng-container>
+    <td>
+      <strong>0</strong>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+✔ = Rx
+</ng-container>

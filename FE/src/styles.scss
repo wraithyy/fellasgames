@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+  background: #5b5e4b;
+  color:white;
+}
+
+.table{
+background:white;
+  width: 95%;
+  margin: 20px auto;
+
+}
+
+.table tr:nth-child(even){
+  background: #f1f4e0;
+}
+
+.table td{
+
+padding: 0.3rem !important;
+
+}
